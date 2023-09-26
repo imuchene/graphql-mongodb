@@ -9,10 +9,19 @@ export class LessonService {
   constructor(
     @InjectModel(Lesson.name)
     private readonly lessonModel: Model<Lesson>,
-  ){}
+  ) {}
 
-  async createLesson(name:string, startDate: string, endDate: string): Promise<Lesson> {
-    const createdLesson = new this.lessonModel({ id: uuid(), name, startDate, endDate });
+  async createLesson(
+    name: string,
+    startDate: string,
+    endDate: string,
+  ): Promise<Lesson> {
+    const createdLesson = new this.lessonModel({
+      id: uuid(),
+      name,
+      startDate,
+      endDate,
+    });
     return await createdLesson.save();
   }
 }

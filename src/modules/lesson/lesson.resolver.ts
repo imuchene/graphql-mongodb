@@ -4,9 +4,8 @@ import { LessonService } from './lesson.service';
 
 @Resolver((of: any) => LessonType)
 export class LessonResolver {
+  constructor(private readonly lessonService: LessonService) {}
 
-  constructor(private readonly lessonService: LessonService){}
-  
   @Query((returns) => LessonType)
   lesson() {
     return {
@@ -17,15 +16,12 @@ export class LessonResolver {
     };
   }
 
-  @Mutation(returns => LessonType)
+  @Mutation((returns) => LessonType)
   createLesson(
     @Args('name') name: string,
     @Args('startDate') startDate: string,
     @Args('endDate') endDate: string,
-  ){
+  ) {
     return this.lessonService.createLesson(name, startDate, endDate);
   }
-
-
-
 }

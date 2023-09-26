@@ -6,13 +6,8 @@ import { Lesson, LessonSchema } from './schemas/lesson.schema';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([
-    { name: Lesson.name, schema: LessonSchema }
-  ]),
-],
-  providers: [
-    LessonResolver, 
-    LessonService
+    MongooseModule.forFeature([{ name: Lesson.name, schema: LessonSchema }]),
   ],
+  providers: [LessonResolver, LessonService],
 })
 export class LessonModule {}

@@ -1,12 +1,10 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import mongoose, { HydratedDocument } from "mongoose";
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { HydratedDocument } from 'mongoose';
 
-
-export type LessonDocument = HydratedDocument<Lesson>
+export type LessonDocument = HydratedDocument<Lesson>;
 
 @Schema()
 export class Lesson {
-
   @Prop()
   id: string;
 
