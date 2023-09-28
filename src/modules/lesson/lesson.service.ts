@@ -12,9 +12,7 @@ export class LessonService {
     private readonly lessonModel: Model<Lesson>,
   ) {}
 
-  async createLesson(
-    createLessonInput: CreateLessonInput
-  ): Promise<Lesson> {
+  async createLesson(createLessonInput: CreateLessonInput): Promise<Lesson> {
     const { name, startDate, endDate } = createLessonInput;
     const createdLesson = new this.lessonModel({
       id: uuid(),

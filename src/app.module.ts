@@ -9,7 +9,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { validate } from './common/config/env.validation';
 import { StudentModule } from './modules/student/student.module';
 
-
 @Module({
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
