@@ -27,9 +27,13 @@ export class LessonResolver {
 
   @Mutation(() => LessonType)
   async assignStudentsToLesson(
-    @Args('assignStudentsToLessonInput') assignStudentsToLessonInput: AssignStudentsToLessonInput,
+    @Args('assignStudentsToLessonInput')
+    assignStudentsToLessonInput: AssignStudentsToLessonInput,
   ) {
     const { lessonId, studentIds } = assignStudentsToLessonInput;
-    return await this.lessonService.assignStudentsToLesson(lessonId, studentIds);
+    return await this.lessonService.assignStudentsToLesson(
+      lessonId,
+      studentIds,
+    );
   }
 }

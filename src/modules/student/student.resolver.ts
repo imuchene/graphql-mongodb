@@ -18,7 +18,6 @@ export class StudentResolver {
     return this.studentService.findAll();
   }
 
-
   @Mutation(() => StudentType)
   async createStudent(
     @Args('createStudentInput') createStudentInput: CreateStudentInput,

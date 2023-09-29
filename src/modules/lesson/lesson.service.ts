@@ -19,7 +19,7 @@ export class LessonService {
       name,
       startDate,
       endDate,
-      students: []
+      students: [],
     });
     return await createdLesson.save();
   }
@@ -32,11 +32,13 @@ export class LessonService {
     return await this.lessonModel.find().exec();
   }
 
-  async assignStudentsToLesson(lessonId: string, studentIds: string[]): Promise<Lesson>{
+  async assignStudentsToLesson(
+    lessonId: string,
+    studentIds: string[],
+  ): Promise<Lesson> {
     const lesson = await this.getLesson(lessonId);
     lesson.students = [...lesson.students, ...studentIds];
     await this.lessonModel.updateOne({ id: lesson.id }, lesson);
     return lesson;
-    
   }
 }

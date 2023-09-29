@@ -14,7 +14,7 @@ export class StudentService {
   ) {}
 
   async findOne(id: string): Promise<Student> {
-    return await this.studentModel.findOne({id});
+    return await this.studentModel.findOne({ id });
   }
 
   async findAll(): Promise<Student[]> {
