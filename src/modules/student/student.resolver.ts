@@ -8,21 +8,22 @@ import { UpdateStudentInput } from './dto/update-student.input';
 export class StudentResolver {
   constructor(private readonly studentService: StudentService) {}
 
+  @Query(() => StudentType, { name: 'student' })
+  findOne(@Args('id', { type: () => String }) id: string) {
+    return this.studentService.findOne(id);
+  }
+
+  @Query(() => [StudentType], { name: 'students' })
+  async findAll() {
+    return this.studentService.findAll();
+  }
+
+
   @Mutation(() => StudentType)
   async createStudent(
     @Args('createStudentInput') createStudentInput: CreateStudentInput,
   ) {
     return await this.studentService.create(createStudentInput);
-  }
-
-  @Query(() => [StudentType], { name: 'students' })
-  findAll() {
-    return this.studentService.findAll();
-  }
-
-  @Query(() => StudentType, { name: 'student' })
-  findOne(@Args('id', { type: () => String }) id: string) {
-    return this.studentService.findOne(id);
   }
 
   @Mutation(() => StudentType)

@@ -13,6 +13,14 @@ export class StudentService {
     private readonly studentModel: Model<Student>,
   ) {}
 
+  async findOne(id: string): Promise<Student> {
+    return await this.studentModel.findOne({id});
+  }
+
+  async findAll(): Promise<Student[]> {
+    return await this.studentModel.find();
+  }
+
   async create(createStudentInput: CreateStudentInput): Promise<Student> {
     const { firstName, lastName } = createStudentInput;
     const createdLesson = new this.studentModel({
@@ -21,14 +29,6 @@ export class StudentService {
       lastName,
     });
     return await createdLesson.save();
-  }
-
-  findAll() {
-    return `This action returns all student`;
-  }
-
-  findOne(id: string) {
-    return `This action returns a #${id} student`;
   }
 
   update(id: string, updateStudentInput: UpdateStudentInput) {
