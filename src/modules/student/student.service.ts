@@ -39,4 +39,8 @@ export class StudentService {
   remove(id: string) {
     return `This action removes a #${id} student`;
   }
+
+  async getManyStudents(studentIds: string[]): Promise<Student[]>{
+    return this.studentModel.find({ id: studentIds });
+  }
 }
