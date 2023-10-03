@@ -16,6 +16,6 @@ export class CreateLessonInput {
   endDate: string;
 
   @IsUUID('4', { each: true })
-  @Field(() => [ID], { defaultValue: []})
+  @Field(() => [ID], { defaultValue: [] })
   students: string[];
 }
